@@ -120,6 +120,7 @@ namespace mixpanel
         public static void OptOutTracking()
         {
             if (!IsInitialized()) return;
+            if (!MixpanelStorage.IsTracking) return;
             People.DeleteUser();
             Flush();
             Reset();
@@ -132,6 +133,7 @@ namespace mixpanel
         public static void OptInTracking()
         {
             if (!IsInitialized()) return;
+            if (MixpanelStorage.IsTracking) return;
             MixpanelStorage.IsTracking = true;
             Controller.DoTrack("$opt_in", null);
         }
