@@ -18,7 +18,7 @@ namespace mixpanel
     /// </code>
     public static partial class Mixpanel
     {
-        internal const string MixpanelUnityVersion = "3.4.2";
+        internal const string MixpanelUnityVersion = "3.5.0";
 
         /// <summary>
         /// Creates an Mixpanel instance. Use only if you have enabled "Manual Initialization" from your Project Settings.
@@ -292,10 +292,11 @@ namespace mixpanel
         /// <summary>
         /// Flushes the queued data to Mixpanel
         /// </summary>
-        public static void Flush()
+        /// <param name="onFlushComplete">callback to be called when the flush is complete. Returns true if overall success</param>
+        public static void Flush(Action<bool> onFlushComplete = null)
         {
             if (!IsInitialized()) return;
-            Controller.GetInstance().DoFlush();
+            Controller.GetInstance().DoFlush(onFlushComplete);
         }
 
         /// <summary>
