@@ -1,9 +1,9 @@
 {
     "name": "Mixpanel.Editor",
+    "rootNamespace": "",
     "references": [
         "Mixpanel"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -12,5 +12,9 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [
+        "!DISABLE_MIXPANEL"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
