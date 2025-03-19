@@ -307,7 +307,9 @@ namespace mixpanel
                 }
                 finally
                 {
-                    System.IO.File.Delete(superPropertiesFile);
+                    if (System.IO.File.Exists(superPropertiesFile)) {
+                        System.IO.File.Delete(superPropertiesFile);
+                    }
                 }
 
                 MixpanelStorage.HasMigratedFrom1To2 = true;
